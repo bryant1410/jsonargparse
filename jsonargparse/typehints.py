@@ -10,7 +10,7 @@ from collections.abc import Iterable as abcIterable
 from collections.abc import Sequence as abcSequence
 from enum import Enum
 from functools import partial
-from typing import Any, Dict, Iterable, List, Sequence, Set, Tuple, Type, TypeVar, Union
+from typing import Any, Dict, Iterable, List, Mapping, Sequence, Set, Tuple, Type, TypeVar, Union
 
 try:
     from typing import Literal  # type: ignore
@@ -126,7 +126,7 @@ class ActionTypeHint(Action):
         if isinstance(typehint, Action):
             typehint = getattr(typehint, '_typehint', None)
         typehint_origin = getattr(typehint, '__origin__', None)
-        if typehint_origin == Union:
+        if typehint_origin in [Iterable, Mapping, Union]:
             subtypes = [a for a in typehint.__args__ if a != NoneType]
             return all(ActionTypeHint.is_class_typehint(s, only_subclasses) for s in subtypes)
         if only_subclasses and is_final_class(typehint):
