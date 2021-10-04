@@ -267,7 +267,7 @@ shown above you would observe:
     (2.3, <class 'float'>)
 
 If the parsing fails the standard behavior is that the usage is printed and the
-program is terminated. Alternatively you can initialize the parser with
+program is terminated. Alternatively, you can initialize the parser with
 :code:`error_handler=None` in which case a :class:`.ParserError` is raised.
 
 
@@ -1113,7 +1113,7 @@ included in the yaml file, or the corresponding absolute path:
 
 Likewise directories can be parsed using the :class:`.Path_dw` type, which would
 require a directory to exist and be writeable. New path types can be created
-using the :func:`.path_type` function. For example to create a type for files
+using the :func:`.path_type` function. For example, to create a type for files
 that must exist and be both readable and writeable, the command would be
 :code:`Path_frw = path_type('frw')`. If the file :code:`app/config.yaml` is not
 writeable, then using the type to cast :code:`Path_frw('app/config.yaml')` would
@@ -1253,7 +1253,7 @@ Boolean arguments
 =================
 
 Parsing boolean arguments is very common, however, the original argparse only
-has a limited support for them, via :code:`store_true` and :code:`store_false`.
+has limited support for them, via :code:`store_true` and :code:`store_false`.
 Futhermore unexperienced users might mistakenly use :code:`type=bool` which
 would not provide the intended behavior.
 
